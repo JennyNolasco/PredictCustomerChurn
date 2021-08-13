@@ -21,7 +21,19 @@ logging.basicConfig(
 
 def test_import(import_data):
     '''
-        test data import - this example is completed for you to assist with the other test functions
+        test data_import function 
+
+        input:
+                pth: a path to the csv
+        output:
+                df: pandas dataframe
+        
+        # Pass path where is the csv file
+        ...
+        # Check if file exists
+        ...
+        # Check if imported file has rows and columns
+        ...
     '''
     try:
         df_raw = import_data("./data/bank_data.csv")
@@ -41,7 +53,17 @@ def test_import(import_data):
 
 def test_eda(perform_eda):
     '''
-    test perform eda function
+        test perform_eda function 
+        input:
+                df: pandas dataframe
+
+        output:
+                None
+        
+        # Generate EDA 
+        ...
+        # Check if 5 image files geneated by EDA exists
+        ...
     '''
     df_raw = cls.import_data("./data/bank_data.csv")
 
@@ -64,7 +86,21 @@ def test_eda(perform_eda):
 
 def test_encoder_helper(encoder_helper):
     '''
-    test encoder helper
+        test encoder_helper function 
+
+        input:
+                df: pandas dataframe
+                category_lst: list of columns that contain categorical features
+                response: string of response name [optional argument that could be used for naming
+                            variables or index y column]
+
+        output:
+                df: pandas dataframe with new columns for
+        
+        # Pass dataframe to create new columns and list with categorical features
+        ...
+        # Check if dataframe returned has all categorical columns
+        ...
     '''
     df_raw = cls.import_data("./data/bank_data.csv")
     df_raw['Churn'] = df_raw['Attrition_Flag'].apply(
@@ -82,7 +118,25 @@ def test_encoder_helper(encoder_helper):
 
 def test_perform_feature_engineering(perform_feature_engineering):
     '''
-    test perform_feature_engineering
+        test perform_feature_engineering function 
+
+        input:
+                df: pandas dataframe
+                response: string of response name [optional argument that could be used for naming
+                    variables or index y column]
+
+        output:
+                X_train: X training data
+                X_test: X testing data
+                y_train: y training data
+                y_test: y testing data
+        
+        # Pass dataframe and column name for y column
+        ...
+        # Check if dataframes created have rows
+        ...
+        # Check if dataframes created have been separated correctly
+        ...
     '''
     df_raw = cls.import_data("./data/bank_data.csv")
     df_raw['Churn'] = df_raw['Attrition_Flag'].apply(
@@ -118,7 +172,25 @@ def test_perform_feature_engineering(perform_feature_engineering):
 
 def test_train_models(train_models):
     '''
-    test train_models
+        test train_models function 
+
+        input:
+                y_train: training response values
+                y_test:  test response values
+                y_train_preds_lr: training predictions from logistic regression
+                y_train_preds_rf: training predictions from random forest
+                y_test_preds_lr: test predictions from logistic regression
+                y_test_preds_rf: test predictions from random forest
+
+        output:
+                None
+        
+        # Pass dataframes 
+        ...
+        # Check if image files geneated by train model exists
+        ...
+        # Check if trained models exists
+        ...
     '''
     df_raw = cls.import_data("./data/bank_data.csv")
     df_raw['Churn'] = df_raw['Attrition_Flag'].apply(
